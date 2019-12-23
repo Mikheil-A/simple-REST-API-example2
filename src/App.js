@@ -3,6 +3,8 @@ import './App.css';
 import Users from "./components/Users/Users";
 import User from "./components/User/User";
 import Drawer from '@material-ui/core/Drawer';
+import axios from "axios";
+import UserDrawer from "./components/UserDrawer/UserDrawer";
 
 
 
@@ -28,9 +30,24 @@ class App extends Component {
 
   redirectToUserPage = userId => {
     this.toggleDrawer(false);
+    this.fetchUserById(userId);
+  };
 
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>', userId);
-    // todo redirect to user page
+  userComponent = () => {
+    if (this.state.isDrawerOpened) {
+      return <UserDrawer user={this.state.user}
+                         onCloseDrawer={() => this.toggleDrawer(false)}
+                         onSeeMoreInfo={(id) => this.redirectToUserPage(id)}/>;
+    }
+    return null;
+  };
+
+  fetchUserById = (id) => {
+    axios.get('https://jsonplaceholder.typicode.com/users/' + id)
+      .then((res) => {
+        console.log(222222222, res);
+        // todo redirect to user page from here
+      });
   };
 
 
@@ -40,9 +57,7 @@ class App extends Component {
         <Users onUserClick={(clickedUserRecord) => this.toggleDrawer(true, clickedUserRecord)}/>
 
         <Drawer anchor="right" open={this.state.isDrawerOpened} onClose={() => this.toggleDrawer(false)}>
-          <User userDataObj={this.state}
-                onCloseDrawer={() => this.toggleDrawer(false)}
-                onSeeMoreInfo={(id) => this.redirectToUserPage(id)}/>
+          {this.userComponent()}
         </Drawer>
       </div>
     );
