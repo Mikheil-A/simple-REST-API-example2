@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/simple-REST-API-example2/static/css/main.f8a89803.chunk.css",
+    "main.js": "/simple-REST-API-example2/static/js/main.99f70bd6.chunk.js",
+    "main.js.map": "/simple-REST-API-example2/static/js/main.99f70bd6.chunk.js.map",
+    "runtime-main.js": "/simple-REST-API-example2/static/js/runtime-main.854bed0d.js",
+    "runtime-main.js.map": "/simple-REST-API-example2/static/js/runtime-main.854bed0d.js.map",
+    "static/js/2.ad908433.chunk.js": "/simple-REST-API-example2/static/js/2.ad908433.chunk.js",
+    "static/js/2.ad908433.chunk.js.map": "/simple-REST-API-example2/static/js/2.ad908433.chunk.js.map",
+    "index.html": "/simple-REST-API-example2/index.html",
+    "precache-manifest.5a3f021736b8ac0d813c22d419104f0c.js": "/simple-REST-API-example2/precache-manifest.5a3f021736b8ac0d813c22d419104f0c.js",
+    "service-worker.js": "/simple-REST-API-example2/service-worker.js",
+    "static/css/main.f8a89803.chunk.css.map": "/simple-REST-API-example2/static/css/main.f8a89803.chunk.css.map",
+    "static/js/2.ad908433.chunk.js.LICENSE": "/simple-REST-API-example2/static/js/2.ad908433.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.854bed0d.js",
+    "static/js/2.ad908433.chunk.js",
+    "static/css/main.f8a89803.chunk.css",
+    "static/js/main.99f70bd6.chunk.js"
+  ]
+}
