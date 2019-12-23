@@ -19,8 +19,6 @@ class App extends Component {
 
 
   toggleDrawer = (drawerOpenState, userData = {}) => {
-    console.log(2222222, drawerOpenState, userData);
-
     this.setState({
       ...this.state,
       isDrawerOpened: drawerOpenState,
@@ -28,42 +26,23 @@ class App extends Component {
     });
   };
 
-  drawerContent = () => {
-    let content = null;
-    if (this.state.isDrawerOpened) {
-      content = <div>
-        <h1>User info: </h1>
+  redirectToUserPage = userId => {
+    this.toggleDrawer(false);
 
-        <p>{this.state.user.name}</p>
-        <p>{this.state.user.username}</p>
-        <p>{this.state.user.email}</p>
-        <p>{this.state.user.phone}</p>
-        <p>{this.state.user.website}</p>
-        <p>{this.state.user.company.name}</p>
-      </div>
-    }
-
-    return (
-      <div
-        role="presentation"
-        onClick={() => this.toggleDrawer(false)}
-        onKeyDown={() => this.toggleDrawer(false)}
-      >
-
-        {content}
-      </div>
-    )
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>', userId);
+    // todo redirect to user page
   };
 
 
   render() {
     return (
       <div>
-        <Users onRowClick={(clickedUserRecord) => this.toggleDrawer(true, clickedUserRecord)}/>
+        <Users onUserClick={(clickedUserRecord) => this.toggleDrawer(true, clickedUserRecord)}/>
 
         <Drawer anchor="right" open={this.state.isDrawerOpened} onClose={() => this.toggleDrawer(false)}>
-          <User userDataObj={this.state.user}/>
-          {this.drawerContent()}
+          <User userDataObj={this.state}
+                onCloseDrawer={() => this.toggleDrawer(false)}
+                onSeeMoreInfo={(id) => this.redirectToUserPage(id)}/>
         </Drawer>
       </div>
     );

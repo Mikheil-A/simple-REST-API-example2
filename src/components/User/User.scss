@@ -1,0 +1,14 @@
+.user {
+	padding: 40px;
+}
+
+#title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	.icons {
+		margin: 10px 0 0 40px;
+	}
+}

@@ -13,15 +13,25 @@ import Paper from '@material-ui/core/Paper';
 
 
 class Users extends Component {
-  state = {
-    users: []
-  };
-
   classes = makeStyles({
     table: {
       minWidth: 650,
     },
   });
+
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      users: []
+    };
+  }
+
+  componentDidMount() {
+    this.fetchUsers();
+  }
+
 
   fetchUsers = () => {
     axios.get('https://jsonplaceholder.typicode.com/users')
@@ -32,57 +42,41 @@ class Users extends Component {
       });
   };
 
-  // onRowClick = (row) => {
-  //   console.log('cliekd', row);
-  // };
-
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    this.fetchUsers();
-  }
-
 
   render() {
     return (
-      <div>
-        <h1>Users</h1>
-
-        <TableContainer component={Paper}>
-          <Table className={this.classes.table} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Full name</TableCell>
-                <TableCell align="right">Username</TableCell>
-                <TableCell align="right">Email</TableCell>
-                <TableCell align="right">Address</TableCell>
-                <TableCell align="right">Phone</TableCell>
-                <TableCell align="right">Website</TableCell>
-                <TableCell align="right">Company</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {this.state.users.map(row => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    <span id="full-name" onClick={() => this.props.onRowClick(row)}>
+      <TableContainer component={Paper}>
+        <Table className={this.classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Full name</TableCell>
+              <TableCell align="right">Username</TableCell>
+              <TableCell align="right">Email</TableCell>
+              <TableCell align="right">Address</TableCell>
+              <TableCell align="right">Phone</TableCell>
+              <TableCell align="right">Website</TableCell>
+              <TableCell align="right">Company</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {this.state.users.map(row => (
+              <TableRow key={row.name}>
+                <TableCell component="th" scope="row">
+                    <span id="full-name" onClick={() => this.props.onUserClick(row)}>
                       {row.name}
                     </span>
-                  </TableCell>
-                  <TableCell align="right">{row.username}</TableCell>
-                  <TableCell align="right">{row.email}</TableCell>
-                  <TableCell align="right">st. {row.address.street}, {row.address.city}</TableCell>
-                  <TableCell align="right">{row.phone}</TableCell>
-                  <TableCell align="right">{row.website}</TableCell>
-                  <TableCell align="right">{row.company.name}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
+                </TableCell>
+                <TableCell align="right">{row.username}</TableCell>
+                <TableCell align="right">{row.email}</TableCell>
+                <TableCell align="right">st. {row.address.street}, {row.address.city}</TableCell>
+                <TableCell align="right">{row.phone}</TableCell>
+                <TableCell align="right">{row.website}</TableCell>
+                <TableCell align="right">{row.company.name}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     );
   }
 }
