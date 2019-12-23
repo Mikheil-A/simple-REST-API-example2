@@ -65,9 +65,11 @@ class Users extends Component {
             </TableHead>
             <TableBody>
               {this.state.users.map(row => (
-                <TableRow key={row.name} onClick={this.props.onRowClick(row)}>
+                <TableRow key={row.name}>
                   <TableCell component="th" scope="row">
-                    {row.name}
+                    <span id="full-name" onClick={() => this.props.onRowClick(row)}>
+                      {row.name}
+                    </span>
                   </TableCell>
                   <TableCell align="right">{row.username}</TableCell>
                   <TableCell align="right">{row.email}</TableCell>

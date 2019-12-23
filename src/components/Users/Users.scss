@@ -1,5 +1,7 @@
 .MuiTableBody-root .MuiTableRow-root {
-	cursor: pointer;
+	#full-name {
+		cursor: pointer;
+	}
 
 	&:hover {
 		background-color: #f7f7fa;
