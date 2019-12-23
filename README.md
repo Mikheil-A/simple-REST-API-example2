@@ -1,7 +1,9 @@
-# simple-REST-API-example2
+# Simple REST API Example 2 in React.js using JSONPlaceholder
+## See [Live Demo](https://mikheil-a.github.io/simple-REST-API-example2/)
 
 
 
+<!--
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -70,3 +72,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+-->
