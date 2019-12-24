@@ -14,6 +14,6 @@ const UserContent = (props) => {
       <p>{props.user.company.name}</p>
     </div>
   )
-}
+};
 
 export default UserContent;

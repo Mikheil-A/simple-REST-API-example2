@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Users.scss';
-import axios from 'axios';
 import {makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,6 +8,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Drawer from "@material-ui/core/Drawer";
+import UserDrawer from "../UserDrawer/UserDrawer";
+import axios from "axios";
+import {Redirect} from 'react-router-dom';
 
 
 
@@ -24,7 +27,10 @@ class Users extends Component {
     super(props);
 
     this.state = {
-      users: []
+      users: [],
+      isDrawerOpened: false,
+      selectedUser: {},
+      selectedUserId: null
     };
   }
 
@@ -42,41 +48,87 @@ class Users extends Component {
       });
   };
 
+  toggleDrawer = (drawerOpenState, userData = {}) => {
+    this.setState({
+      ...this.state,
+      isDrawerOpened: drawerOpenState,
+      selectedUser: userData
+    });
+  };
+
+  redirectToSelectedUserPage = userId => {
+    this.toggleDrawer(false);
+    this.fetchUserById(userId);
+  };
+
+  userComponent = () => {
+    if (this.state.isDrawerOpened) {
+      return <UserDrawer user={this.state.selectedUser}
+                         onCloseDrawer={() => this.toggleDrawer(false)}
+                         onSeeMoreInfo={(id) => this.redirectToSelectedUserPage(id)}/>;
+    }
+    return null;
+  };
+
+  fetchUserById = (id) => {
+    axios.get('https://jsonplaceholder.typicode.com/users/' + id)
+      .then((res) => {
+        this.setState({
+          ...this.state,
+          selectedUser: res.data,
+          selectedUserId: id
+        });
+      });
+  };
+
 
   render() {
+    if (this.state.selectedUserId) {
+      return <Redirect to={{
+        pathname: `/user/${this.state.selectedUserId}`,
+        state: {user: this.state.selectedUser}
+      }}/>;
+    }
+
     return (
-      <TableContainer component={Paper}>
-        <Table className={this.classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell>Full name</TableCell>
-              <TableCell align="right">Username</TableCell>
-              <TableCell align="right">Email</TableCell>
-              <TableCell align="right">Address</TableCell>
-              <TableCell align="right">Phone</TableCell>
-              <TableCell align="right">Website</TableCell>
-              <TableCell align="right">Company</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {this.state.users.map(row => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                    <span id="full-name" onClick={() => this.props.onUserClick(row)}>
+      <div>
+        <TableContainer component={Paper}>
+          <Table className={this.classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Full name</TableCell>
+                <TableCell align="right">Username</TableCell>
+                <TableCell align="right">Email</TableCell>
+                <TableCell align="right">Address</TableCell>
+                <TableCell align="right">Phone</TableCell>
+                <TableCell align="right">Website</TableCell>
+                <TableCell align="right">Company</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {this.state.users.map(row => (
+                <TableRow key={row.name}>
+                  <TableCell component="th" scope="row">
+                    <span id="full-name" onClick={() => this.toggleDrawer(true, row)}>
                       {row.name}
                     </span>
-                </TableCell>
-                <TableCell align="right">{row.username}</TableCell>
-                <TableCell align="right">{row.email}</TableCell>
-                <TableCell align="right">st. {row.address.street}, {row.address.city}</TableCell>
-                <TableCell align="right">{row.phone}</TableCell>
-                <TableCell align="right">{row.website}</TableCell>
-                <TableCell align="right">{row.company.name}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                  </TableCell>
+                  <TableCell align="right">{row.username}</TableCell>
+                  <TableCell align="right">{row.email}</TableCell>
+                  <TableCell align="right">st. {row.address.street}, {row.address.city}</TableCell>
+                  <TableCell align="right">{row.phone}</TableCell>
+                  <TableCell align="right">{row.website}</TableCell>
+                  <TableCell align="right">{row.company.name}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+        <Drawer anchor="right" open={this.state.isDrawerOpened} onClose={() => this.toggleDrawer(false)}>
+          {this.userComponent()}
+        </Drawer>
+      </div>
     );
   }
 }

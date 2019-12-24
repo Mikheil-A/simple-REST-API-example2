@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './User.scss';
+import UserContent from "../UserContent/UserContent";
+import {Link} from "react-router-dom";
 
 
 
-class User extends Component {
+const User = (props) => {
+  return <div className="user">
+    <nav>
+      <Link to="/users">Users</Link>
+    </nav>
 
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return <div>
-      <h1>user works</h1>
+    <div id="user-content">
+      <UserContent user={props.location.state.user}/>
     </div>
-  }
+  </div>
 };
 
 export default User;
