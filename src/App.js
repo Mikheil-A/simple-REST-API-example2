@@ -3,6 +3,7 @@ import './App.css';
 import Users from "./components/Users/Users";
 import User from "./components/User/User";
 import Posts from "./components/Posts/Posts";
+import NotFound from "./components/NotFound/NotFound";
 import {Route, Switch, Redirect} from 'react-router-dom';
 
 
@@ -16,6 +17,7 @@ const App = () => {
       <Route path="/users" component={Users}/>
       <Route path="/user/:id" component={User}/>
       <Route path="/posts/:userId" component={Posts}/>
+      <Route component={NotFound}/>
     </Switch>
   )
 };
