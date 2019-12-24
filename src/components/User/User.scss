@@ -1,4 +1,9 @@
 .user {
+	nav {
+		a:first-child {
+			margin-right: 20px;
+		}
+	}
 
 	#user-content {
 		display: flex;

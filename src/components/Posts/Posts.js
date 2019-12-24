@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Posts.scss';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 
 class Posts extends Component {
@@ -9,7 +10,7 @@ class Posts extends Component {
     super(props);
 
     this.state = {
-      posts: {}
+      posts: []
     };
   }
 
@@ -23,34 +24,34 @@ class Posts extends Component {
       .then((res) => {
         this.setState({
           ...this.state,
-          posts: res
+          posts: res.data
         });
       });
   };
 
   renderPosts = () => {
-    // let posts = null;
-    // if (this.state.posts) {
-    //   posts = <div>
-    //     {this.state.users.map(post => (
-    //       <div>test</div>
-    //     ))}
-    //   </div>
-    // }
-    // return posts;
-
-    // console.log(this.state.posts.data[0].title);
-
-    console.log('test');
-
-    return <h1>test header</h1>
+    let posts = [];
+    if (this.state.posts.length > 0) {
+      this.state.posts.forEach(post => {
+        posts.push(
+          <div key={post.id}>
+            <h2>({post.id}) {post.title}</h2>
+            <p>{post.body}</p>
+          </div>
+        )
+      });
+    }
+    return posts;
   };
 
 
   render() {
     return <div>
-      <h1>posts works</h1>
-      {/*{this.renderPosts()}*/}
+      <nav>
+        <Link to="/users">Users</Link>
+      </nav>
+
+      {this.renderPosts()}
     </div>
   }
 }
