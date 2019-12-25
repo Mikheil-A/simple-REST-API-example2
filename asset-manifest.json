@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/simple-rest-api-example2/static/css/main.f8a89803.chunk.css",
-    "main.js": "/simple-rest-api-example2/static/js/main.c440f3bc.chunk.js",
-    "main.js.map": "/simple-rest-api-example2/static/js/main.c440f3bc.chunk.js.map",
-    "runtime-main.js": "/simple-rest-api-example2/static/js/runtime-main.39a800a6.js",
-    "runtime-main.js.map": "/simple-rest-api-example2/static/js/runtime-main.39a800a6.js.map",
-    "static/js/2.ad908433.chunk.js": "/simple-rest-api-example2/static/js/2.ad908433.chunk.js",
-    "static/js/2.ad908433.chunk.js.map": "/simple-rest-api-example2/static/js/2.ad908433.chunk.js.map",
-    "index.html": "/simple-rest-api-example2/index.html",
-    "precache-manifest.2da7b71e37754826f3e58677438e7285.js": "/simple-rest-api-example2/precache-manifest.2da7b71e37754826f3e58677438e7285.js",
-    "service-worker.js": "/simple-rest-api-example2/service-worker.js",
-    "static/css/main.f8a89803.chunk.css.map": "/simple-rest-api-example2/static/css/main.f8a89803.chunk.css.map",
-    "static/js/2.ad908433.chunk.js.LICENSE": "/simple-rest-api-example2/static/js/2.ad908433.chunk.js.LICENSE"
+    "main.css": "/simple-REST-API-example2/static/css/main.57c0525b.chunk.css",
+    "main.js": "/simple-REST-API-example2/static/js/main.aecb14f4.chunk.js",
+    "main.js.map": "/simple-REST-API-example2/static/js/main.aecb14f4.chunk.js.map",
+    "runtime-main.js": "/simple-REST-API-example2/static/js/runtime-main.854bed0d.js",
+    "runtime-main.js.map": "/simple-REST-API-example2/static/js/runtime-main.854bed0d.js.map",
+    "static/js/2.cd778869.chunk.js": "/simple-REST-API-example2/static/js/2.cd778869.chunk.js",
+    "static/js/2.cd778869.chunk.js.map": "/simple-REST-API-example2/static/js/2.cd778869.chunk.js.map",
+    "index.html": "/simple-REST-API-example2/index.html",
+    "precache-manifest.407718846a2479a0f65e10f8bc70d6ab.js": "/simple-REST-API-example2/precache-manifest.407718846a2479a0f65e10f8bc70d6ab.js",
+    "service-worker.js": "/simple-REST-API-example2/service-worker.js",
+    "static/css/main.57c0525b.chunk.css.map": "/simple-REST-API-example2/static/css/main.57c0525b.chunk.css.map",
+    "static/js/2.cd778869.chunk.js.LICENSE": "/simple-REST-API-example2/static/js/2.cd778869.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.39a800a6.js",
-    "static/js/2.ad908433.chunk.js",
-    "static/css/main.f8a89803.chunk.css",
-    "static/js/main.c440f3bc.chunk.js"
+    "static/js/runtime-main.854bed0d.js",
+    "static/js/2.cd778869.chunk.js",
+    "static/css/main.57c0525b.chunk.css",
+    "static/js/main.aecb14f4.chunk.js"
   ]
 }
