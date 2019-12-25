@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Posts.scss';
-import axios from "axios";
+import {jsonplaceholderInstance as axios} from '../../axios';
 import {Link} from "react-router-dom";
 
 
@@ -20,7 +20,7 @@ class Posts extends Component {
 
 
   fetchUserPosts = (userId) => {
-    axios.get('https://jsonplaceholder.typicode.com/posts?userId=' + userId)
+    axios.get('/posts?userId=' + userId)
       .then((res) => {
         this.setState({
           ...this.state,

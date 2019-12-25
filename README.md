@@ -1,5 +1,5 @@
 # Simple REST API Example 2 in React.js using JSONPlaceholder
-## See [Live Demo](https://mikheil-a.github.io/simple-REST-API-example2/)
+## See [Live Demo](https://mikheil-a.github.io/simple-REST-API-example2)
 
 
 

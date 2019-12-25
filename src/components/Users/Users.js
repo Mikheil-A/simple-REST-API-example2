@@ -10,7 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Drawer from "@material-ui/core/Drawer";
 import UserDrawer from "../UserDrawer/UserDrawer";
-import axios from "axios";
+import {jsonplaceholderInstance as axios} from '../../axios';
 import {Redirect} from 'react-router-dom';
 
 
@@ -40,7 +40,7 @@ class Users extends Component {
 
 
   fetchUsers = () => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    axios.get('/users')
       .then((res) => {
         this.setState({
           users: res.data
@@ -71,7 +71,7 @@ class Users extends Component {
   };
 
   fetchUserById = (id) => {
-    axios.get('https://jsonplaceholder.typicode.com/users/' + id)
+    axios.get('/users/' + id)
       .then((res) => {
         this.setState({
           ...this.state,
