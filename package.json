@@ -2,7 +2,7 @@
   "name": "simple-rest-api-example2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mikheil-a.github.io/simple-REST-API-example2/",
+  "homepage": "https://mikheil-a.github.io/simple-REST-API-example2",
   "dependencies": {
     "@material-ui/core": "^4.8.0",
     "@material-ui/icons": "^4.5.1",
