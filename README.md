@@ -2,6 +2,9 @@
 ## See [Live Demo](https://mikheil-a.github.io/simple-REST-API-example2)
 
 
+<!--run "npm run deploy" to re-publish on gh-pages.-->
+
+
 
 <!--
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

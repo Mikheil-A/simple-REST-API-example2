@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './Posts.scss';
 import {jsonplaceholderInstance as axios} from '../../axios';
 import {Link} from "react-router-dom";
+import PacmanLoader from "react-spinners/PacmanLoader";
+import Backdrop from '@material-ui/core/Backdrop';
 
 
 class Posts extends Component {
@@ -52,6 +54,13 @@ class Posts extends Component {
       </nav>
 
       {this.renderPosts()}
+
+      <Backdrop open={!this.state.posts.length}>
+        <PacmanLoader
+          size={30}
+          color={"#b8aeae"}
+        />
+      </Backdrop>
     </div>
   }
 }

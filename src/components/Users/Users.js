@@ -12,14 +12,16 @@ import Drawer from "@material-ui/core/Drawer";
 import UserDrawer from "../UserDrawer/UserDrawer";
 import {jsonplaceholderInstance as axios} from '../../axios';
 import {Redirect} from 'react-router-dom';
+import DotLoader from "react-spinners/DotLoader";
+import Backdrop from '@material-ui/core/Backdrop';
 
 
 
 class Users extends Component {
   classes = makeStyles({
     table: {
-      minWidth: 650,
-    },
+      minWidth: 650
+    }
   });
 
 
@@ -128,6 +130,14 @@ class Users extends Component {
         <Drawer anchor="right" open={this.state.isDrawerOpened} onClose={() => this.toggleDrawer(false)}>
           {this.userComponent()}
         </Drawer>
+
+        <Backdrop open={!this.state.users.length}>
+          {/*"react-spinners - npm": https://www.npmjs.com/package/react-spinners*/}
+          <DotLoader
+            size={100}
+            color={"#b8aeae"}
+          />
+        </Backdrop>
       </div>
     );
   }
